@@ -1,0 +1,10 @@
+###
+GET http://localhost:8080/api/v1/auth/valicate-email
+{
+
+}
+<> 2024-01-26T221311.400.html
+<> 2024-01-26T221251.400.html
+<> 2024-01-26T221231.400.html
+
+###

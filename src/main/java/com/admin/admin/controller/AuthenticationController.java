@@ -31,12 +31,15 @@ public class AuthenticationController {
         return authenticationService.forgotpassword(forgotPasswordRequest.getEmail(), forgotPasswordRequest.getPhone());
     }
     @GetMapping("/valicate-email")
-    public RedirectView  valicatEmail(@RequestParam String email,
+    public RedirectView  valicateEmail(@RequestParam String email,
                                @RequestParam String otp){
         String status = authenticationService.valicateEmail(email,otp);
         if(status.endsWith("Valicate sucess")){
             return new RedirectView("http://localhost:3000/login");
         }
         return new RedirectView("http://localhost:3000/register");
+//            return new RedirectView("https://www.facebook.com/nhonpk123");
+//        }
+//        return new RedirectView("https://www.facebook.com/FPTU.HCM");
     }
 }

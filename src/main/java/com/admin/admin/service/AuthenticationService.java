@@ -105,17 +105,16 @@ public class AuthenticationService {
             }
             String password = RandomStringUtils.random(12,true,true);
             SimpleMailMessage message= new SimpleMailMessage();
-            message.setFrom("thaibs36@gmail.com");
+            message.setFrom("lamthanhanhquan2003@gmail.com");
             message.setTo(email);
-            message.setSubject("Reset Password BirdShop");
-            message.setText("New password: "+password+"\n"+"Please change password after login sucess");
+            message.setSubject("Reset Password WanderShare");
+            message.setText("New password: "+password+"\n"+"Please change password after login success");
             mailSender.send(message);
             userService.updatePassword(users,password);
             return "Please check inbox email";
         }catch (Exception e){
             return e.getMessage();
         }
-
     }
 
     public String valicateEmail(String email,String otp){

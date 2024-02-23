@@ -42,12 +42,16 @@ public class TimeshareController {
     @PostMapping("/add")
     public ResponseEntity<?> addTimeshare(@RequestBody Timeshare timeshare){
         try {
+            timeshare.setIs_check(false);
             timeshareRepository.save(timeshare);
             return ResponseEntity.ok("Add sucess");
         }catch (Exception e){
             return ResponseEntity.ok(e.getMessage());
         }
-
+    }
+    @PostMapping("/changeCheck")
+    public boolean changeCheck(Long id){
+        return timeshareService.setIsCheck(id);
     }
     @GetMapping("/seacrhByName")
     public ResponseEntity<?> getTimeshareByName(@RequestParam String q){

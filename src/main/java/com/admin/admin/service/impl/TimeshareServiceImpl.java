@@ -15,7 +15,24 @@ import java.util.Optional;
 public class TimeshareServiceImpl implements TimeshareService {
     private final TimeshareRepository timeshareRepository;
 
-
+    @Override
+    public boolean setIsCheck(Long id) {
+        try {
+            Optional<Timeshare> timeshare = timeshareRepository.findById(id);
+            if(!timeshare.isPresent()){
+                return false;
+            }
+            timeshare.stream().forEach(timeshare1 -> {
+                Boolean check = timeshare1.getIs_check();
+                check = !check;
+                timeshare1.setIs_check(check);
+                timeshareRepository.save(timeshare1);
+            });
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
     @Override
     public ResponseEntity<?> updateTimeshare(Long timeshareID, Timeshare updatedTimeshare) {
         Timeshare existingTimeshare = timeshareRepository.findById(timeshareID)

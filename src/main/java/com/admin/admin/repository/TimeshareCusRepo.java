@@ -18,7 +18,7 @@ public class TimeshareCusRepo {
 
     public List<Timeshare> findByOrderByNameAsc(){
         StringBuilder sql = new StringBuilder()
-                .append("select * from product_item p\n" +
+                .append("select * from timeshare p\n" +
                         "order by p.name asc");
         NativeQuery<Timeshare> query = ((Session)entityManager.getDelegate()).createNativeQuery(sql.toString());
         query.addScalar("id", StandardBasicTypes.LONG);
@@ -30,13 +30,14 @@ public class TimeshareCusRepo {
         query.addScalar("product_image", StandardBasicTypes.STRING);
         query.addScalar("startDate", StandardBasicTypes.DATE);
         query.addScalar("endDate", StandardBasicTypes.DATE);
+        query.addScalar("is_check", StandardBasicTypes.BOOLEAN);
         query.setResultTransformer(Transformers.aliasToBean(Timeshare.class));
         return query.list();
     }
 
     public List<Timeshare> findByOrderByNameDesc(){
         StringBuilder sql = new StringBuilder()
-                .append("select * from product_item p\n" +
+                .append("select * from timeshare p\n" +
                         "order by p.name desc");
         NativeQuery<Timeshare> query = ((Session)entityManager.getDelegate()).createNativeQuery(sql.toString());
         query.addScalar("id", StandardBasicTypes.LONG);
@@ -46,8 +47,7 @@ public class TimeshareCusRepo {
         query.addScalar("amount", StandardBasicTypes.INTEGER);
         query.addScalar("price", StandardBasicTypes.FLOAT);
         query.addScalar("product_image", StandardBasicTypes.STRING);
-        query.addScalar("is_customer", StandardBasicTypes.DATE);
-        query.addScalar("is_post", StandardBasicTypes.DATE);
+        query.addScalar("is_check", StandardBasicTypes.BOOLEAN);
         query.setResultTransformer(Transformers.aliasToBean(Timeshare.class));
         return query.list();
     }

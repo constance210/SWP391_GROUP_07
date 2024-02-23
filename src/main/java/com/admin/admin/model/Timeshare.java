@@ -25,8 +25,9 @@ public class Timeshare {
     private String timeshare_image;
     private Date startDate;
     private Date endDate;
+    private Boolean is_check;
 
-    public Timeshare(String userid, Long category_id, String name, String description, long amount, float price, String timeshare_image, Date startDate, Date endDate) {
+    public Timeshare(String userid, Long category_id, String name, String description, long amount, float price, String timeshare_image, Date startDate, Date endDate, Boolean is_check) {
         this.userid = userid;
         this.category_id = category_id;
         this.name = name;
@@ -36,5 +37,6 @@ public class Timeshare {
         this.timeshare_image = timeshare_image;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.is_check = is_check;
     }
 }

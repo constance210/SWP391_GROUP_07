@@ -74,10 +74,6 @@ public class TimeshareController {
         List<Timeshare> timeshares = timeshareCusRepo.findByOrderByNameDesc();
         return ResponseEntity.ok(timeshares);
     }
-    @PostMapping("/changePost")
-    public boolean changePost(Long id){
-        return timeshareService.setIsPost(id);
-    }
 
     @PutMapping("/update")
     public ResponseEntity<?> updateTimeshare(@RequestParam Long id,

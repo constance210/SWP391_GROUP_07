@@ -37,7 +37,7 @@ public class AuthenticationController {
         if(status.endsWith("Valicate sucess")){
             return new RedirectView("http://localhost:3000/login");
         }
-        return new RedirectView("http://localhost:3000/register");
+        return new RedirectView("http://localhost:8080/register");
 //            return new RedirectView("https://www.facebook.com/nhonpk123");
 //        }
 //        return new RedirectView("https://www.facebook.com/FPTU.HCM");
